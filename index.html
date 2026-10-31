@@ -1,0 +1,1408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ramit Kumar — Pharmaceutical Research &amp; Drug Development Portfolio</title>
+  <meta name="description" content="Professional portfolio of Ramit Kumar, B.Pharm. student and aspiring pharmaceutical research &amp; drug development professional." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,300;0,500;1,300&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    /* ----------------------------------------------------------------
+       Design tokens — sourced from DESIGN.md
+       ----------------------------------------------------------------- */
+    :root {
+      /* Colors */
+      --color-primary: #292524;
+      --color-primary-active: #0c0a09;
+      --color-ink: #0c0a09;
+      --color-body: #4e4e4e;
+      --color-body-strong: #292524;
+      --color-muted: #777169;
+      --color-muted-soft: #a8a29e;
+      --color-hairline: #e7e5e4;
+      --color-hairline-soft: #f0efed;
+      --color-hairline-strong: #d6d3d1;
+      --color-canvas: #f5f5f5;
+      --color-canvas-soft: #fafafa;
+      --color-surface_card: #ffffff;
+      --color-surface-strong: #f0efed;
+      --gradient-mint: #a7e5d3;
+      --gradient-peach: #f4c5a8;
+      --gradient-lavender: #c8b8e0;
+      --gradient-sky: #a8c8e8;
+      --gradient-rose: #e8b8c4;
+
+      /* Typography */
+      --font-display: "EB Garamond", "Times New Roman", serif;
+      --font-body: "Inter", sans-serif;
+
+      /* Display scale (EB Garamond substitute for Waldenburg at weight 300) */
+      --fs-display-mega: 64px;
+      --lh-display-mega: 1.05;
+      --ls-display-mega: -1.92px;
+      --fs-display-xl: 48px;
+      --lh-display-xl: 1.08;
+      --ls-display-xl: -0.96px;
+      --fs-display-lg: 36px;
+      --lh-display-lg: 1.17;
+      --ls-display-lg: -0.36px;
+      --fs-display-md: 32px;
+      --lh-display-md: 1.13;
+      --ls-display-md: -0.32px;
+      --fs-display-sm: 24px;
+      --lh-display-sm: 1.2;
+
+      /* Body scale (Inter) */
+      --fs-title-md: 20px;
+      --lh-title-md: 1.35;
+      --fw-title-md: 500;
+      --fs-title-sm: 18px;
+      --lh-title-sm: 1.44;
+      --ls-title-sm: 0.18px;
+      --fw-title-sm: 500;
+      --fs-body-md: 16px;
+      --lh-body-md: 1.5;
+      --ls-body-md: 0.16px;
+      --fw-body-md: 400;
+      --fs-body-strong: 16px;
+      --lh-body-strong: 1.5;
+      --ls-body-strong: 0.16px;
+      --fw-body-strong: 500;
+      --fs-body-sm: 15px;
+      --lh-body-sm: 1.47;
+      --ls-body-sm: 0.15px;
+      --fs-caption: 14px;
+      --lh-caption: 1.5;
+      --fs-caption-uppercase: 12px;
+      --lh-caption-uppercase: 1.4;
+      --ls-caption-uppercase: 0.96px;
+      --fw-caption-uppercase: 600;
+      --fs-button: 15px;
+      --lh-button: 1.0;
+      --fw-button: 500;
+      --fs-nav-link: 15px;
+      --lh-nav-link: 1.4;
+      --fw-nav-link: 500;
+
+      /* Border radius */
+      --rd-xs: 4px;
+      --rd-sm: 6px;
+      --rd-md: 8px;
+      --rd-lg: 12px;
+      --rd-xl: 16px;
+      --rd-xxl: 24px;
+      --rd-pill: 9999px;
+
+      /* Spacing */
+      --sp-xxs: 4px;
+      --sp-xs: 8px;
+      --sp-sm: 12px;
+      --sp-base: 16px;
+      --sp-md: 20px;
+      --sp-lg: 24px;
+      --sp-xl: 32px;
+      --sp-xxl: 48px;
+      --sp-section: 96px;
+
+      /* Layout */
+      --max-width: 1200px;
+      --nav-height: 64px;
+    }
+
+    /* ----------------------------------------------------------------
+       Reset & base
+       ----------------------------------------------------------------- */
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+    }
+
+    body {
+      background-color: var(--color-canvas);
+      color: var(--color-body);
+      font-family: var(--font-body);
+      font-size: var(--fs-body-md);
+      font-weight: var(--fw-body-md);
+      line-height: var(--lh-body-md);
+      letter-spacing: var(--ls-body-md);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* ----------------------------------------------------------------
+       Skip link (keyboard accessibility)
+       ----------------------------------------------------------------- */
+    .skip-link {
+      position: absolute;
+      top: var(--sp-base);
+      left: var(--sp-base);
+      transform: translateY(-100%);
+      background-color: var(--color-primary);
+      color: #ffffff;
+      font-family: var(--font-body);
+      font-size: var(--fs-button);
+      font-weight: var(--fw-button);
+      padding: 8px 16px;
+      border-radius: var(--rd-pill);
+      text-decoration: none;
+      z-index: 1000;
+      transition: transform 0.2s ease;
+    }
+
+    .skip-link:focus {
+      transform: translateY(0);
+      outline: 2px solid var(--color-ink);
+      outline-offset: 2px;
+    }
+
+    /* ----------------------------------------------------------------
+       Top navigation
+       ----------------------------------------------------------------- */
+    .top-nav {
+      position: sticky;
+      top: 0;
+      z-index: 500;
+      background-color: var(--color-canvas);
+      border-bottom: 1px solid var(--color-hairline);
+    }
+
+    .nav-wrap {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 var(--sp-base);
+      height: var(--nav-height);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--sp-base);
+    }
+
+    .wordmark {
+      font-family: var(--font-display);
+      font-size: var(--fs-display-xl);
+      font-weight: 300;
+      line-height: var(--lh-display-xl);
+      letter-spacing: var(--ls-display-xl);
+      color: var(--color-ink);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: var(--sp-xs);
+    }
+
+    .wordmark span {
+      font-family: var(--font-body);
+      font-size: var(--fs-body-sm);
+      font-weight: var(--fw-body-md);
+      letter-spacing: var(--ls-body-sm);
+      color: var(--color-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.96px;
+      line-height: 1;
+    }
+
+    .nav-list {
+      display: flex;
+      align-items: center;
+      gap: var(--sp-xl);
+      list-style: none;
+    }
+
+    .nav-link {
+      font-family: var(--font-body);
+      font-size: var(--fs-nav-link);
+      font-weight: var(--fw-nav-link);
+      line-height: var(--lh-nav-link);
+      letter-spacing: 0;
+      color: var(--color-ink);
+      text-decoration: none;
+      padding: var(--sp-xs) 0;
+      display: block;
+    }
+
+    .nav-link:hover,
+    .nav-link:focus-visible {
+      color: var(--color-primary);
+      outline: 2px solid var(--color-ink);
+      outline-offset: 2px;
+      border-radius: var(--rd-xs);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: var(--sp-md);
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      padding: var(--sp-xs);
+    }
+
+    .mobile-menu-btn svg {
+      width: 20px;
+      height: 20px;
+      fill: var(--color-ink);
+    }
+
+    /* ----------------------------------------------------------------
+       Buttons
+       ----------------------------------------------------------------- */
+    .btn {
+      font-family: var(--font-body);
+      font-size: var(--fs-button);
+      font-weight: var(--fw-button);
+      line-height: var(--lh-button);
+      letter-spacing: 0;
+      border: none;
+      border-radius: var(--rd-pill);
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+    }
+
+    .btn:focus-visible {
+      outline: 2px solid var(--color-ink);
+      outline-offset: 2px;
+    }
+
+    .btn-primary {
+      background-color: var(--color-primary);
+      color: #ffffff;
+      padding: 10px 20px;
+      height: 40px;
+    }
+
+    .btn-primary:hover {
+      background-color: var(--color-primary-active);
+    }
+
+    .btn-outline {
+      background-color: transparent;
+      color: var(--color-ink);
+      padding: 9px 19px;
+      height: 40px;
+      border: 1px solid var(--color-hairline-strong);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--color-primary);
+    }
+
+    /* ----------------------------------------------------------------
+       Utility
+       ----------------------------------------------------------------- */
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 var(--sp-base);
+    }
+
+    .section {
+      padding: var(--sp-section) 0;
+    }
+
+    .section-alt {
+      background-color: var(--color-canvas-soft);
+    }
+
+    .section-label {
+      font-family: var(--font-body);
+      font-size: var(--fs-caption-uppercase);
+      font-weight: var(--fw-caption-uppercase);
+      line-height: var(--lh-caption-uppercase);
+      letter-spacing: var(--ls-caption-uppercase);
+      text-transform: uppercase;
+      color: var(--color-muted);
+      display: block;
+      margin-bottom: var(--sp-xs);
+    }
+
+    .section-head {
+      margin-bottom: var(--sp-xl);
+    }
+
+    .section-head h2 {
+      font-family: var(--font-display);
+      font-size: var(--fs-display-lg);
+      font-weight: 300;
+      line-height: var(--lh-display-lg);
+      letter-spacing: var(--ls-display-lg);
+      color: var(--color-ink);
+      margin-bottom: var(--sp-sm);
+    }
+
+    .section-head p {
+      font-family: var(--font-body);
+      font-size: var(--fs-body-md);
+      font-weight: var(--fw-body-md);
+      line-height: var(--lh-body-md);
+      letter-spacing: var(--ls-body-md);
+      color: var(--color-body);
+      max-width: 640px;
+    }
+
+    .planned-tag {
+      display: inline-block;
+      background-color: var(--color-surface-strong);
+      color: var(--color-ink);
+      font-family: var(--font-body);
+      font-size: var(--fs-caption-uppercase);
+      font-weight: var(--fw-caption-uppercase);
+      line-height: var(--lh-caption-uppercase);
+      letter-spacing: var(--ls-caption-uppercase);
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: var(--rd-pill);
+      margin-left: var(--sp-xs);
+    }
+
+    /* ----------------------------------------------------------------
+       Gradient orbs (atmospheric decoration only — per DESIGN.md)
+       ----------------------------------------------------------------- */
+    .orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(60px);
+      z-index: 0;
+      opacity: 0.6;
+      pointer-events: none;
+    }
+
+    .orb-mint {
+      background: radial-gradient(circle, var(--gradient-mint), transparent);
+    }
+    .orb-peach {
+      background: radial-gradient(circle, var(--gradient-peach), transparent);
+    }
+    .orb-lavender {
+      background: radial-gradient(circle, var(--gradient-lavender), transparent);
+    }
+    .orb-sky {
+      background: radial-gradient(circle, var(--gradient-sky), transparent);
+    }
+    .orb-rose {
+      background: radial-gradient(circle, var(--gradient-rose), transparent);
+    }
+
+    /* ----------------------------------------------------------------
+       Hero
+       ----------------------------------------------------------------- */
+    .hero {
+      position: relative;
+      background-color: var(--color-canvas);
+      padding: var(--sp-section) 0;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: 10%;
+      left: 10%;
+      width: 560px;
+      height: 560px;
+      background: radial-gradient(circle, var(--gradient-lavender), transparent);
+      filter: blur(80px);
+      opacity: 0.5;
+      z-index: 0;
+    }
+
+    .hero .container {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--sp-xl);
+      align-items: center;
+    }
+
+    .hero-head {
+      max-width: 720px;
+    }
+
+    .hero-head .section-label {
+      margin-bottom: var(--sp-sm);
+    }
+
+    .hero-head h1 {
+      font-family: var(--font-display);
+      font-size: var(--fs-display-mega);
+      font-weight: 300;
+      line-height: var(--lh-display-mega);
+      letter-spacing: var(--ls-display-mega);
+      color: var(--color-ink);
+      margin-bottom: var(--sp-md);
+    }
+
+    .hero-head p {
+      font-family: var(--font-body);
+      font-size: var(--fs-body-md);
+      font-weight: var(--fw-body-md);
+      line-height: var(--lh-body-md);
+      letter-spacing: var(--ls-body-md);
+      color: var(--color-body);
+      margin-bottom: var(--sp-lg);
+      max-width: 560px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: var(--sp-md);
+      flex-wrap: wrap;
+    }
+
+    .hero-visual {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .hero-card {
+      background-color: var(--color-surface_card);
+      border: 1px solid var(--color-hairline);
+      border-radius: var(--rd-xl);
+      padding: var(--sp-xl);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+      max-width: 320px;
+      text-align: center;
+    }
+
+    .hero-card .badge {
+      display: inline-block;
+      background-color: var(--color-surface-strong);
+      color: var(--color-ink);
+      font-family: var(--font-body);
+      font-size: var(--fs-caption-uppercase);
+      font-weight: var(--fw-caption-uppercase);
+      line-height: var(--lh-caption-uppercase);
+      letter-spacing: var(--ls-caption-uppercase);
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: var(--rd-pill);
+      margin-bottom: var(--sp-md);
+    }
+
+    .hero-card h3 {
+      font-family: var(--font-display);
+      font-size: var(--fs-display-sm);
+      font-weight: 300;
+      line-height: var(--lh-display-sm);
+      letter-spacing: 0;
+      color: var(--color-ink);
+      margin-bottom: var(--sp-sm);
+    }
+
+    .hero-card p {
+      font-family: var(--font-body);
+      font-size: var(--fs-body-sm);
+      font-weight: var(--fw-body-md);
+      line-height: var(--lh-body-sm);
+      letter-spacing: var(--ls-body-sm);
+      color: var(--color-body);
+    }
+
+    /* ----------------------------------------------------------------
+       About
+       ----------------------------------------------------------------- */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--sp-xl);
+      align-items: start;
+    }
+
+    .about-text p {
+      margin-bottom: var(--sp-md);
+      color: var(--color-body);
+    }
+
+    .about-text p:last-child {
+      margin-bottom: 0;
+    }
+
+    .about-meta {
+      display: flex;
+      flex-direction: column;
+      gap: var(--sp-md);
+    }
+
+    .meta-item {
+      display: flex;
+      gap: var(--sp-md);
+      align-items: flex-start;
+    }
+
+    .meta-label {
+      font-family: var(--font-body);
+      font-size: var(--fs-title-sm);
+      font-weight: var(--fw-title-sm);
+      line-height: var(--lh-title-sm);
+      letter-spacing: var(--ls-title-sm);
+      color: var(--color-muted);
+      min-width: 160px;
+    }
+
+    .meta-value {
+      font-family: var(--font-body);
+      font-size: var(--fs-body-md);
+      font-weight: var(--fw-body-md);
+      line-height: var(--lh-body-md);
+      letter-spacing: var(--ls-body-md);
+      color: var(--color-body);
+    }
+
+    /* ----------------------------------------------------------------
+       Education
+       ----------------------------------------------------------------- */
+    .edu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: var(--sp-lg);
+    }
+
+    .edu-card {
+      background-color: var(--color-surface_card);
+      border: 1px solid var(--color-hairline);
+      border-radius: var(--rd-xl);
+      padding: var(--sp-lg);
+    }
+
+    .edu-card h3 {
+      font-family: var(--font-display);
+      font-size: var(--fs-display-sm);
+      font-weight: 300;
+      line-height: var(--lh-display-sm);
+      letter-spacing: 0;
+      color: var(--color-ink);
+      margin-bottom: var(--sp-sm);
+    }
+
+    .edu-card .edu-institution {
+      font-family: var(--font-body);
+      font-size: var(--fs-title-sm);
+      font-weight: var(--fw-title-sm);
+      line-height: var(--lh-title-sm);
+      letter-spacing: var(--ls-title-sm);
+      color: var(--color-muted);
+      margin-bottom: var(--sp-xs);
+    }
+
+    .edu-card .edu-detail {
+      font-family: var(--font-body);
+      font-size: var(--fs-body-md);
+      font-weight: var(--fw-body-md);
+      line-height: var(--lh-body-md);
+      letter-spacing: var(--ls-body-md);
+      color: var(--color-body);
+      margin-bottom: var(--sp-xs);
+    }
+
+    .edu-card .edu-detail:last-child {
+      margin-bottom: 0;
+    }
+
+    /* ----------------------------------------------------------------
+       Skills
+       ----------------------------------------------------------------- */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: var(--sp-lg);
+    }
+
+    .skill-group {
+      background-color: var(--color-surface_card);
+      border: 1px solid var(--color-hairline);
+      border-radius: var(--rd-xl);
+      padding: var(--sp-lg);
+    }
+
+    .skill-group h3 {
+      font-family: var(--font-display);
+      font-size: var(--fs-display-sm);
+      font-weight: 300;
+      line-height: var(--lh-display-sm);
+      letter-spacing: 0;
+      color: var(--color-ink);
+      margin-bottom: var(--sp-md);
+    }
+
+    .skill-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: var(--sp-xs);
+    }
+
+    .skill-item {
+      font-family: var(--font-body);
+      font-size: var(--fs-body-md);
+      font-weight: var(--fw-body-md);
+      line-height: var(--lh-body-md);
+      letter-spacing: var(--ls-body-md);
+      color: var(--color-body);
+      padding: var(--sp-xs) 0;
+      border-bottom: 1px solid var(--color-hairline-soft);
+    }
+
+    .skill-item:last-child {
+      border-bottom: none;
+    }
+
+    /* ----------------------------------------------------------------
+       Career Roadmap (Planned / Targets)
+       ----------------------------------------------------------------- */
+    .roadmap-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: var(--sp-lg);
+    }
+
+    .roadmap-card {
+      background-color: var(--color-surface_card);
+      border: 1px solid var(--color-hairline);
+      border-radius: var(--rd-xl);
+      padding: var(--sp-lg);
+    }
+
+    .roadmap-card h3 {
+      font-family: var(--font-display);
+      font-size: var(--fs-display-sm);
+      font-weight: 300;
+      line-height: var(--lh-display-sm);
+      letter-spacing: 0;
+      color: var(--color-ink);
+      margin-bottom: var(--sp-md);
+    }
+
+    .roadmap-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: var(--sp-md);
+    }
+
+    .roadmap-item {
+      font-family: var(--font-body);
+      font-size: var(--fs-body-md);
+      font-weight: var(--fw-body-md);
+      line-height: var(--lh-body-md);
+      letter-spacing: var(--ls-body-md);
+      color: var(--color-body);
+      padding-bottom: var(--sp-md);
+      border-bottom: 1px solid var(--color-hairline-soft);
+    }
+
+    .roadmap-item:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .roadmap-target {
+      font-family: var(--font-body);
+      font-size: var(--fs-body-sm);
+      font-weight: var(--fw-body-md);
+      line-height: var(--lh-body-sm);
+      letter-spacing: var(--ls-body-sm);
+      color: var(--color-muted);
+      margin-top: var(--sp-xxs);
+      display: block;
+    }
+
+    /* ----------------------------------------------------------------
+       Languages
+       ----------------------------------------------------------------- */
+    .languages-wrap {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--sp-md);
+      align-items: center;
+    }
+
+    .language-item {
+      font-family: var(--font-body);
+      font-size: var(--fs-body-md);
+      font-weight: var(--fw-body-md);
+      line-height: var(--lh-body-md);
+      letter-spacing: var(--ls-body-md);
+      color: var(--color-body);
+    }
+
+    /* ----------------------------------------------------------------
+       Contact
+       ----------------------------------------------------------------- */
+    .contact-wrap {
+      max-width: 640px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .contact-head {
+      margin-bottom: var(--sp-xl);
+    }
+
+    .contact-head h2 {
+      font-family: var(--font-display);
+      font-size: var(--fs-display-lg);
+      font-weight: 300;
+      line-height: var(--lh-display-lg);
+      letter-spacing: var(--ls-display-lg);
+      color: var(--color-ink);
+      margin-bottom: var(--sp-sm);
+    }
+
+    .contact-head p {
+      font-family: var(--font-body);
+      font-size: var(--fs-body-md);
+      font-weight: var(--fw-body-md);
+      line-height: var(--lh-body-md);
+      letter-spacing: var(--ls-body-md);
+      color: var(--color-body);
+    }
+
+    .contact-details {
+      display: flex;
+      flex-direction: column;
+      gap: var(--sp-md);
+      margin-bottom: var(--sp-xl);
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--sp-md);
+    }
+
+    .contact-item a {
+      color: var(--color-ink);
+      text-decoration: none;
+      font-family: var(--font-body);
+      font-size: var(--fs-body-md);
+      font-weight: var(--fw-body-md);
+      line-height: var(--lh-body-md);
+      letter-spacing: var(--ls-body-md);
+    }
+
+    .contact-item a:hover,
+    .contact-item a:focus-visible {
+      color: var(--color-primary);
+      outline: 2px solid var(--color-ink);
+      outline-offset: 2px;
+      border-radius: var(--rd-xs);
+    }
+
+    /* ----------------------------------------------------------------
+       Footer
+       ----------------------------------------------------------------- */
+    .footer {
+      background-color: var(--color-canvas);
+      border-top: 1px solid var(--color-hairline);
+      padding: var(--sp-xl) 0;
+    }
+
+    .footer-wrap {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 var(--sp-base);
+      display: flex;
+      flex-direction: column;
+      gap: var(--sp-lg);
+      align-items: center;
+      text-align: center;
+    }
+
+    .footer-name {
+      font-family: var(--font-display);
+      font-size: var(--fs-display-sm);
+      font-weight: 300;
+      line-height: var(--lh-display-sm);
+      letter-spacing: 0;
+      color: var(--color-ink);
+    }
+
+    .footer-note {
+      font-family: var(--font-body);
+      font-size: var(--fs-body-sm);
+      font-weight: var(--fw-body-md);
+      line-height: var(--lh-body-sm);
+      letter-spacing: var(--ls-body-sm);
+      color: var(--color-body);
+    }
+
+    /* ----------------------------------------------------------------
+       Back to top
+       ----------------------------------------------------------------- */
+    .back-to-top {
+      position: fixed;
+      bottom: var(--sp-xl);
+      right: var(--sp-xl);
+      background-color: var(--color-primary);
+      color: #ffffff;
+      border: none;
+      border-radius: var(--rd-pill);
+      width: 48px;
+      height: 48px;
+      cursor: pointer;
+      z-index: 400;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s ease, background-color 0.2s ease;
+    }
+
+    .back-to-top:focus-visible {
+      outline: 2px solid var(--color-ink);
+      outline-offset: 2px;
+    }
+
+    .back-to-top.visible {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .back-to-top:hover {
+      background-color: var(--color-primary-active);
+    }
+
+    .back-to-top svg {
+      width: 20px;
+      height: 20px;
+      fill: #ffffff;
+    }
+
+    /* ----------------------------------------------------------------
+       Responsive
+       ----------------------------------------------------------------- */
+    @media (max-width: 1024px) {
+      .hero-head h1 {
+        font-size: var(--fs-display-xl);
+        letter-spacing: var(--ls-display-xl);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-list {
+        position: fixed;
+        top: var(--nav-height);
+        left: 0;
+        right: 0;
+        background-color: var(--color-canvas);
+        flex-direction: column;
+        align-items: stretch;
+        padding: var(--sp-base);
+        gap: var(--sp-xs);
+        border-bottom: 1px solid var(--color-hairline);
+        transform: translateY(-100%);
+        opacity: 0;
+        visibility: hidden;
+        transition: transform 0.3s ease, opacity 0.3s ease, visibility 0.3s ease;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+      }
+
+      .nav-list.open {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+      }
+
+      .nav-link {
+        padding: var(--sp-md) var(--sp-base);
+      }
+
+      .mobile-menu-btn {
+        display: block;
+      }
+
+      .nav-actions {
+        gap: var(--sp-sm);
+      }
+
+      .hero-head h1 {
+        font-size: var(--fs-display-md);
+        letter-spacing: var(--ls-display-md);
+      }
+
+      .hero .container {
+        gap: var(--sp-lg);
+      }
+
+      .section {
+        padding: var(--sp-xl) 0;
+      }
+
+      .section-head h2 {
+        font-size: var(--fs-display-md);
+      }
+
+      .meta-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--sp-xs);
+      }
+
+      .meta-label {
+        min-width: auto;
+      }
+
+      .contact-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--sp-xs);
+      }
+    }
+
+    @media (max-width: 640px) {
+      .hero-head h1 {
+        font-size: 32px;
+        letter-spacing: -0.96px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Skip to content -->
+  <a href="#main" class="skip-link">Skip to content</a>
+
+  <!-- Top navigation -->
+  <header class="top-nav">
+    <div class="nav-wrap">
+      <a href="#" class="wordmark" aria-label="Home">
+        Ramit Kumar
+        <span>Portfolio</span>
+      </a>
+
+      <button class="mobile-menu-btn" id="mobileMenuBtn" aria-expanded="false" aria-controls="mobileMenu" type="button">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 4h18v2H3V4zm0 7h18v2H3v-2zm0 7h18v2H3v-2z"/></svg>
+      </button>
+
+      <nav>
+        <ul class="nav-list" id="mobileMenu">
+          <li><a href="#hero" class="nav-link">Overview</a></li>
+          <li><a href="#about" class="nav-link">About</a></li>
+          <li><a href="#education" class="nav-link">Education</a></li>
+          <li><a href="#skills" class="nav-link">Skills</a></li>
+          <li><a href="#roadmap" class="nav-link">Career Roadmap</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="#contact" class="btn btn-outline">Contact me</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- Hero -->
+    <section id="hero" class="hero">
+      <div class="container">
+        <div class="hero-head">
+          <span class="section-label">Professional portfolio</span>
+          <h1>Ramit Kumar</h1>
+          <p>B.Pharm. student at Lovely Professional University, building toward a career in pharmaceutical research and drug development. My goal is to contribute to innovative healthcare and medicine-development initiatives, with Canada as my primary destination and Italy as an alternative pathway.</p>
+          <div class="hero-actions">
+            <a href="#roadmap" class="btn btn-primary">View my roadmap</a>
+            <a href="#contact" class="btn btn-outline">Contact me</a>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <div class="hero-card">
+            <span class="badge">Aspiring Pharmaceutical Research &amp; Drug Development Professional</span>
+            <h3>Ramit Kumar</h3>
+            <p>B.Pharm. Year 1 · Lovely Professional University</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="section">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-label">About</span>
+          <h2>About me</h2>
+          <p>I am a first-year B.Pharm. student at Lovely Professional University pursuing a research-oriented career in pharmaceutical sciences. My direction connects science, impact, and independence — building strong fundamentals in medicines, formulation, analysis, and patient safety, with the goal of postgraduate study in Canada or Italy.</p>
+        </div>
+
+        <div class="about-grid">
+          <div class="about-text">
+            <p>I want a career that bridges scientific rigor with real-world impact. My preferred direction is research-oriented pharmaceutical sciences — exploring drug discovery, formulation and delivery, pharmacology, biotechnology, quality, and regulatory science. An MSc in Pharmaceutical Sciences is my target next step, as it is research-focused and may lead to laboratory, R&amp;D, or PhD pathways.</p>
+            <p>My long-term ambition is to contribute to innovative healthcare and medicine-development initiatives in Canada, with Italy as an alternative pathway. I aim to become financially independent and eventually live and work abroad.</p>
+          </div>
+
+          <div class="about-meta">
+            <div class="meta-item">
+              <span class="meta-label">Current status</span>
+              <span class="meta-value">B.Pharm. Year 1, Semester 1 (Pursuing)</span>
+            </div>
+            <div class="meta-item">
+              <span class="meta-label">University</span>
+              <span class="meta-value">Lovely Professional University</span>
+            </div>
+            <div class="meta-item">
+              <span class="meta-label">Career direction</span>
+              <span class="meta-value">Research-oriented Pharmaceutical Sciences</span>
+            </div>
+            <div class="meta-item">
+              <span class="meta-label">Primary destination</span>
+              <span class="meta-value">Canada (Italy as alternative)</span>
+            </div>
+            <div class="meta-item">
+              <span class="meta-label">Dream role</span>
+              <span class="meta-value">Pharmaceutical Research Scientist / Drug Development Associate</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Education -->
+    <section id="education" class="section section-alt">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-label">Education</span>
+          <h2>Education</h2>
+          <p>Academic qualifications supporting my pharmaceutical sciences pathway.</p>
+        </div>
+
+        <div class="edu-grid">
+          <div class="edu-card">
+            <h3>B.Pharm. — Bachelor of Pharmacy</h3>
+            <div class="edu-institution">Lovely Professional University</div>
+            <div class="edu-detail">1st Year, 1st Semester — Pursuing</div>
+            <div class="edu-detail">Jalandhar, Punjab</div>
+          </div>
+
+          <div class="edu-card">
+            <h3>Class XII — Senior Secondary</h3>
+            <div class="edu-institution">St. Anthony's Convent School, Adampur</div>
+            <div class="edu-detail">Score: 83.3%</div>
+            <div class="edu-detail">Adampur, Punjab</div>
+          </div>
+
+          <div class="edu-card">
+            <h3>Class X — Secondary</h3>
+            <div class="edu-institution">St. Anthony's Convent School, Adampur</div>
+            <div class="edu-detail">Score: 83.8%</div>
+            <div class="edu-detail">Adampur, Punjab</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills" class="section">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-label">Skills</span>
+          <h2>Skills &amp; capabilities</h2>
+          <p>Technical and transferable skills drawn from my B.Pharm. coursework and career plan.</p>
+        </div>
+
+        <div class="skills-grid">
+          <div class="skill-group">
+            <h3>Technical Skills</h3>
+            <ul class="skill-list">
+              <li class="skill-item">Pharmaceutical sciences fundamentals</li>
+              <li class="skill-item">Drug development concepts</li>
+              <li class="skill-item">Pharmaceutical analysis</li>
+              <li class="skill-item">Pharmacology fundamentals</li>
+              <li class="skill-item">Formulation &amp; dosage-form knowledge</li>
+              <li class="skill-item">Laboratory practice &amp; research methodology</li>
+              <li class="skill-item">Scientific documentation &amp; data interpretation</li>
+              <li class="skill-item">Quality and regulatory awareness</li>
+              <li class="skill-item">Basic pharmaceutical laboratory techniques</li>
+              <li class="skill-item">Pharmaceutical calculations</li>
+              <li class="skill-item">Analytical chemistry fundamentals</li>
+              <li class="skill-item">Scientific report writing</li>
+              <li class="skill-item">Microsoft Word &amp; PowerPoint</li>
+              <li class="skill-item">Academic presentations</li>
+              <li class="skill-item">Basic research &amp; information-gathering</li>
+            </ul>
+          </div>
+
+          <div class="skill-group">
+            <h3>Soft Skills</h3>
+            <ul class="skill-list">
+              <li class="skill-item">Good communication</li>
+              <li class="skill-item">Teamwork</li>
+              <li class="skill-item">Time management</li>
+              <li class="skill-item">Problem-solving</li>
+              <li class="skill-item">Quick learning &amp; adaptability</li>
+              <li class="skill-item">Attention to detail</li>
+              <li class="skill-item">Responsibility</li>
+              <li class="skill-item">Positive attitude</li>
+            </ul>
+          </div>
+
+          <div class="skill-group">
+            <h3>Strengths</h3>
+            <ul class="skill-list">
+              <li class="skill-item">Hardworking</li>
+              <li class="skill-item">Sincere</li>
+              <li class="skill-item">Quick learner</li>
+              <li class="skill-item">Responsible</li>
+              <li class="skill-item">Disciplined</li>
+              <li class="skill-item">Good team player</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Career Roadmap (Planned / Targets) -->
+    <section id="roadmap" class="section section-alt">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-label">Career Roadmap &amp; Targets</span>
+          <h2>Planned milestones</h2>
+          <p>All items below are stated as targets in my CV and career aspiration plan. None are completed yet — they represent my intended path forward.</p>
+        </div>
+
+        <div class="roadmap-grid">
+          <div class="roadmap-card">
+            <h3>Target Certifications</h3>
+            <ul class="roadmap-list">
+              <li class="roadmap-item">
+                Good Laboratory Practice (GLP)
+                <span class="roadmap-target">Target: by 2027</span>
+              </li>
+              <li class="roadmap-item">
+                Good Manufacturing Practice (GMP)
+                <span class="roadmap-target">Target: by 2027</span>
+              </li>
+              <li class="roadmap-item">
+                Pharmaceutical quality and regulatory fundamentals
+                <span class="roadmap-target">Target: by 2028</span>
+              </li>
+              <li class="roadmap-item">
+                Research methodology
+                <span class="roadmap-target">Target: by 2027</span>
+              </li>
+              <li class="roadmap-item">
+                Scientific writing
+                <span class="roadmap-target">Target: by 2028</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="roadmap-card">
+            <h3>Planned Projects &amp; Internships</h3>
+            <ul class="roadmap-list">
+              <li class="roadmap-item">
+                Pharmaceutical formulation
+                <span class="roadmap-target">Project · by 2027</span>
+              </li>
+              <li class="roadmap-item">
+                Pharmaceutical analysis
+                <span class="roadmap-target">Project · by 2027–28</span>
+              </li>
+              <li class="roadmap-item">
+                Drug-development concepts
+                <span class="roadmap-target">Project · by 2028</span>
+              </li>
+              <li class="roadmap-item">
+                Dosage forms &amp; evaluation of emerging medicines
+                <span class="roadmap-target">Project · by 2028</span>
+              </li>
+              <li class="roadmap-item">
+                Pharmaceutical manufacturing
+                <span class="roadmap-target">Internship · by 2028–29</span>
+              </li>
+              <li class="roadmap-item">
+                Quality control / quality assurance
+                <span class="roadmap-target">Internship · by 2028–29</span>
+              </li>
+              <li class="roadmap-item">
+                Formulation · Clinical research · Drug-development environments
+                <span class="roadmap-target">Internships · by 2029</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="roadmap-card">
+            <h3>Planned Publications</h3>
+            <ul class="roadmap-list">
+              <li class="roadmap-item">
+                Student research paper
+                <span class="roadmap-target">Target: by 2029</span>
+              </li>
+              <li class="roadmap-item">
+                Review article
+                <span class="roadmap-target">Target: by 2029</span>
+              </li>
+              <li class="roadmap-item">
+                Poster presentation
+                <span class="roadmap-target">Target: by 2029</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="roadmap-card">
+            <h3>Higher Studies</h3>
+            <ul class="roadmap-list">
+              <li class="roadmap-item">
+                Master's in Pharmaceutical Sciences / Drug Development
+                <span class="roadmap-target">Target University: University of Toronto</span>
+              </li>
+              <li class="roadmap-item">
+                Also exploring: UBC, University of Milan, University of Rome Tor Vergata
+                <span class="roadmap-target">Canada or Italy</span>
+              </li>
+              <li class="roadmap-item">
+                Target package: CAD 80,000+/year
+                <span class="roadmap-target">Dream company: AstraZeneca Canada</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Languages -->
+    <section id="languages" class="section">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-label">Languages</span>
+          <h2>Languages</h2>
+          <p>Languages I speak, as listed in my CV.</p>
+        </div>
+
+        <div class="languages-wrap">
+          <span class="language-item">Punjabi</span>
+          <span class="language-item">English</span>
+          <span class="language-item">Hindi</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="section section-alt">
+      <div class="container">
+        <div class="contact-wrap">
+          <div class="contact-head">
+            <h2>Get in touch</h2>
+            <p>I welcome the opportunity to connect about pharmaceutical research, drug development, and collaborative study.</p>
+          </div>
+
+          <div class="contact-details">
+            <div class="contact-item">
+              <a href="mailto:ramitkumar1307@gmail.com">ramitkumar1307@gmail.com</a>
+            </div>
+            <div class="contact-item">
+              <a href="tel:+917696525604">+91 7696525604</a>
+            </div>
+            <div class="contact-item">
+              <span>Village Dheypur, P/O Adda Kathar</span>
+            </div>
+            <div class="contact-item">
+              <span>District Jalandhar, Punjab, India</span>
+            </div>
+          </div>
+
+          <a href="#hero" class="btn btn-primary">Back to top</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-wrap">
+      <div class="footer-name">Ramit Kumar</div>
+      <p class="footer-note">B.Pharm. student · Aspiring Pharmaceutical Research &amp; Drug Development Professional</p>
+    </div>
+  </footer>
+
+  <!-- Back to top button -->
+  <button class="back-to-top" id="backToTop" aria-label="Back to top" type="button">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4l-8 8h16l-8-8z"/></svg>
+  </button>
+
+  <script>
+    /* ----------------------------------------------------------------
+       Mobile menu toggle
+       ----------------------------------------------------------------- */
+    (function () {
+      var btn = document.getElementById('mobileMenuBtn');
+      var menu = document.getElementById('mobileMenu');
+      var links = menu.querySelectorAll('.nav-link');
+
+      btn.addEventListener('click', function () {
+        var expanded = btn.getAttribute('aria-expanded') === 'true';
+        btn.setAttribute('aria-expanded', !expanded);
+        menu.classList.toggle('open');
+      });
+
+      links.forEach(function (link) {
+        link.addEventListener('click', function () {
+          btn.setAttribute('aria-expanded', 'false');
+          menu.classList.remove('open');
+        });
+      });
+    })();
+
+    /* ----------------------------------------------------------------
+       Back to top visibility
+       ----------------------------------------------------------------- */
+    (function () {
+      var btn = document.getElementById('backToTop');
+
+      function toggle() {
+        if (window.scrollY > 200) {
+          btn.classList.add('visible');
+        } else {
+          btn.classList.remove('visible');
+        }
+      }
+
+      window.addEventListener('scroll', toggle);
+      toggle();
+
+      btn.addEventListener('click', function () {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    })();
+  </script>
+</body>
+</html>
