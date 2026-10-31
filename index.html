@@ -1,1408 +1,162 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ramit Kumar — Pharmaceutical Research &amp; Drug Development Portfolio</title>
-  <meta name="description" content="Professional portfolio of Ramit Kumar, B.Pharm. student and aspiring pharmaceutical research &amp; drug development professional." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,300;0,500;1,300&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
-  <style>
-    /* ----------------------------------------------------------------
-       Design tokens — sourced from DESIGN.md
-       ----------------------------------------------------------------- */
-    :root {
-      /* Colors */
-      --color-primary: #292524;
-      --color-primary-active: #0c0a09;
-      --color-ink: #0c0a09;
-      --color-body: #4e4e4e;
-      --color-body-strong: #292524;
-      --color-muted: #777169;
-      --color-muted-soft: #a8a29e;
-      --color-hairline: #e7e5e4;
-      --color-hairline-soft: #f0efed;
-      --color-hairline-strong: #d6d3d1;
-      --color-canvas: #f5f5f5;
-      --color-canvas-soft: #fafafa;
-      --color-surface_card: #ffffff;
-      --color-surface-strong: #f0efed;
-      --gradient-mint: #a7e5d3;
-      --gradient-peach: #f4c5a8;
-      --gradient-lavender: #c8b8e0;
-      --gradient-sky: #a8c8e8;
-      --gradient-rose: #e8b8c4;
-
-      /* Typography */
-      --font-display: "EB Garamond", "Times New Roman", serif;
-      --font-body: "Inter", sans-serif;
-
-      /* Display scale (EB Garamond substitute for Waldenburg at weight 300) */
-      --fs-display-mega: 64px;
-      --lh-display-mega: 1.05;
-      --ls-display-mega: -1.92px;
-      --fs-display-xl: 48px;
-      --lh-display-xl: 1.08;
-      --ls-display-xl: -0.96px;
-      --fs-display-lg: 36px;
-      --lh-display-lg: 1.17;
-      --ls-display-lg: -0.36px;
-      --fs-display-md: 32px;
-      --lh-display-md: 1.13;
-      --ls-display-md: -0.32px;
-      --fs-display-sm: 24px;
-      --lh-display-sm: 1.2;
-
-      /* Body scale (Inter) */
-      --fs-title-md: 20px;
-      --lh-title-md: 1.35;
-      --fw-title-md: 500;
-      --fs-title-sm: 18px;
-      --lh-title-sm: 1.44;
-      --ls-title-sm: 0.18px;
-      --fw-title-sm: 500;
-      --fs-body-md: 16px;
-      --lh-body-md: 1.5;
-      --ls-body-md: 0.16px;
-      --fw-body-md: 400;
-      --fs-body-strong: 16px;
-      --lh-body-strong: 1.5;
-      --ls-body-strong: 0.16px;
-      --fw-body-strong: 500;
-      --fs-body-sm: 15px;
-      --lh-body-sm: 1.47;
-      --ls-body-sm: 0.15px;
-      --fs-caption: 14px;
-      --lh-caption: 1.5;
-      --fs-caption-uppercase: 12px;
-      --lh-caption-uppercase: 1.4;
-      --ls-caption-uppercase: 0.96px;
-      --fw-caption-uppercase: 600;
-      --fs-button: 15px;
-      --lh-button: 1.0;
-      --fw-button: 500;
-      --fs-nav-link: 15px;
-      --lh-nav-link: 1.4;
-      --fw-nav-link: 500;
-
-      /* Border radius */
-      --rd-xs: 4px;
-      --rd-sm: 6px;
-      --rd-md: 8px;
-      --rd-lg: 12px;
-      --rd-xl: 16px;
-      --rd-xxl: 24px;
-      --rd-pill: 9999px;
-
-      /* Spacing */
-      --sp-xxs: 4px;
-      --sp-xs: 8px;
-      --sp-sm: 12px;
-      --sp-base: 16px;
-      --sp-md: 20px;
-      --sp-lg: 24px;
-      --sp-xl: 32px;
-      --sp-xxl: 48px;
-      --sp-section: 96px;
-
-      /* Layout */
-      --max-width: 1200px;
-      --nav-height: 64px;
-    }
-
-    /* ----------------------------------------------------------------
-       Reset & base
-       ----------------------------------------------------------------- */
-    *,
-    *::before,
-    *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      html {
-        scroll-behavior: auto;
-      }
-    }
-
-    body {
-      background-color: var(--color-canvas);
-      color: var(--color-body);
-      font-family: var(--font-body);
-      font-size: var(--fs-body-md);
-      font-weight: var(--fw-body-md);
-      line-height: var(--lh-body-md);
-      letter-spacing: var(--ls-body-md);
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-    }
-
-    /* ----------------------------------------------------------------
-       Skip link (keyboard accessibility)
-       ----------------------------------------------------------------- */
-    .skip-link {
-      position: absolute;
-      top: var(--sp-base);
-      left: var(--sp-base);
-      transform: translateY(-100%);
-      background-color: var(--color-primary);
-      color: #ffffff;
-      font-family: var(--font-body);
-      font-size: var(--fs-button);
-      font-weight: var(--fw-button);
-      padding: 8px 16px;
-      border-radius: var(--rd-pill);
-      text-decoration: none;
-      z-index: 1000;
-      transition: transform 0.2s ease;
-    }
-
-    .skip-link:focus {
-      transform: translateY(0);
-      outline: 2px solid var(--color-ink);
-      outline-offset: 2px;
-    }
-
-    /* ----------------------------------------------------------------
-       Top navigation
-       ----------------------------------------------------------------- */
-    .top-nav {
-      position: sticky;
-      top: 0;
-      z-index: 500;
-      background-color: var(--color-canvas);
-      border-bottom: 1px solid var(--color-hairline);
-    }
-
-    .nav-wrap {
-      max-width: var(--max-width);
-      margin: 0 auto;
-      padding: 0 var(--sp-base);
-      height: var(--nav-height);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: var(--sp-base);
-    }
-
-    .wordmark {
-      font-family: var(--font-display);
-      font-size: var(--fs-display-xl);
-      font-weight: 300;
-      line-height: var(--lh-display-xl);
-      letter-spacing: var(--ls-display-xl);
-      color: var(--color-ink);
-      text-decoration: none;
-      display: flex;
-      align-items: center;
-      gap: var(--sp-xs);
-    }
-
-    .wordmark span {
-      font-family: var(--font-body);
-      font-size: var(--fs-body-sm);
-      font-weight: var(--fw-body-md);
-      letter-spacing: var(--ls-body-sm);
-      color: var(--color-muted);
-      text-transform: uppercase;
-      letter-spacing: 0.96px;
-      line-height: 1;
-    }
-
-    .nav-list {
-      display: flex;
-      align-items: center;
-      gap: var(--sp-xl);
-      list-style: none;
-    }
-
-    .nav-link {
-      font-family: var(--font-body);
-      font-size: var(--fs-nav-link);
-      font-weight: var(--fw-nav-link);
-      line-height: var(--lh-nav-link);
-      letter-spacing: 0;
-      color: var(--color-ink);
-      text-decoration: none;
-      padding: var(--sp-xs) 0;
-      display: block;
-    }
-
-    .nav-link:hover,
-    .nav-link:focus-visible {
-      color: var(--color-primary);
-      outline: 2px solid var(--color-ink);
-      outline-offset: 2px;
-      border-radius: var(--rd-xs);
-    }
-
-    .nav-actions {
-      display: flex;
-      align-items: center;
-      gap: var(--sp-md);
-    }
-
-    .mobile-menu-btn {
-      display: none;
-      background: transparent;
-      border: none;
-      cursor: pointer;
-      padding: var(--sp-xs);
-    }
-
-    .mobile-menu-btn svg {
-      width: 20px;
-      height: 20px;
-      fill: var(--color-ink);
-    }
-
-    /* ----------------------------------------------------------------
-       Buttons
-       ----------------------------------------------------------------- */
-    .btn {
-      font-family: var(--font-body);
-      font-size: var(--fs-button);
-      font-weight: var(--fw-button);
-      line-height: var(--lh-button);
-      letter-spacing: 0;
-      border: none;
-      border-radius: var(--rd-pill);
-      cursor: pointer;
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
-    }
-
-    .btn:focus-visible {
-      outline: 2px solid var(--color-ink);
-      outline-offset: 2px;
-    }
-
-    .btn-primary {
-      background-color: var(--color-primary);
-      color: #ffffff;
-      padding: 10px 20px;
-      height: 40px;
-    }
-
-    .btn-primary:hover {
-      background-color: var(--color-primary-active);
-    }
-
-    .btn-outline {
-      background-color: transparent;
-      color: var(--color-ink);
-      padding: 9px 19px;
-      height: 40px;
-      border: 1px solid var(--color-hairline-strong);
-    }
-
-    .btn-outline:hover {
-      border-color: var(--color-primary);
-    }
-
-    /* ----------------------------------------------------------------
-       Utility
-       ----------------------------------------------------------------- */
-    .container {
-      max-width: var(--max-width);
-      margin: 0 auto;
-      padding: 0 var(--sp-base);
-    }
-
-    .section {
-      padding: var(--sp-section) 0;
-    }
-
-    .section-alt {
-      background-color: var(--color-canvas-soft);
-    }
-
-    .section-label {
-      font-family: var(--font-body);
-      font-size: var(--fs-caption-uppercase);
-      font-weight: var(--fw-caption-uppercase);
-      line-height: var(--lh-caption-uppercase);
-      letter-spacing: var(--ls-caption-uppercase);
-      text-transform: uppercase;
-      color: var(--color-muted);
-      display: block;
-      margin-bottom: var(--sp-xs);
-    }
-
-    .section-head {
-      margin-bottom: var(--sp-xl);
-    }
-
-    .section-head h2 {
-      font-family: var(--font-display);
-      font-size: var(--fs-display-lg);
-      font-weight: 300;
-      line-height: var(--lh-display-lg);
-      letter-spacing: var(--ls-display-lg);
-      color: var(--color-ink);
-      margin-bottom: var(--sp-sm);
-    }
-
-    .section-head p {
-      font-family: var(--font-body);
-      font-size: var(--fs-body-md);
-      font-weight: var(--fw-body-md);
-      line-height: var(--lh-body-md);
-      letter-spacing: var(--ls-body-md);
-      color: var(--color-body);
-      max-width: 640px;
-    }
-
-    .planned-tag {
-      display: inline-block;
-      background-color: var(--color-surface-strong);
-      color: var(--color-ink);
-      font-family: var(--font-body);
-      font-size: var(--fs-caption-uppercase);
-      font-weight: var(--fw-caption-uppercase);
-      line-height: var(--lh-caption-uppercase);
-      letter-spacing: var(--ls-caption-uppercase);
-      text-transform: uppercase;
-      padding: 4px 10px;
-      border-radius: var(--rd-pill);
-      margin-left: var(--sp-xs);
-    }
-
-    /* ----------------------------------------------------------------
-       Gradient orbs (atmospheric decoration only — per DESIGN.md)
-       ----------------------------------------------------------------- */
-    .orb {
-      position: absolute;
-      border-radius: 50%;
-      filter: blur(60px);
-      z-index: 0;
-      opacity: 0.6;
-      pointer-events: none;
-    }
-
-    .orb-mint {
-      background: radial-gradient(circle, var(--gradient-mint), transparent);
-    }
-    .orb-peach {
-      background: radial-gradient(circle, var(--gradient-peach), transparent);
-    }
-    .orb-lavender {
-      background: radial-gradient(circle, var(--gradient-lavender), transparent);
-    }
-    .orb-sky {
-      background: radial-gradient(circle, var(--gradient-sky), transparent);
-    }
-    .orb-rose {
-      background: radial-gradient(circle, var(--gradient-rose), transparent);
-    }
-
-    /* ----------------------------------------------------------------
-       Hero
-       ----------------------------------------------------------------- */
-    .hero {
-      position: relative;
-      background-color: var(--color-canvas);
-      padding: var(--sp-section) 0;
-      overflow: hidden;
-    }
-
-    .hero::before {
-      content: "";
-      position: absolute;
-      top: 10%;
-      left: 10%;
-      width: 560px;
-      height: 560px;
-      background: radial-gradient(circle, var(--gradient-lavender), transparent);
-      filter: blur(80px);
-      opacity: 0.5;
-      z-index: 0;
-    }
-
-    .hero .container {
-      position: relative;
-      z-index: 1;
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: var(--sp-xl);
-      align-items: center;
-    }
-
-    .hero-head {
-      max-width: 720px;
-    }
-
-    .hero-head .section-label {
-      margin-bottom: var(--sp-sm);
-    }
-
-    .hero-head h1 {
-      font-family: var(--font-display);
-      font-size: var(--fs-display-mega);
-      font-weight: 300;
-      line-height: var(--lh-display-mega);
-      letter-spacing: var(--ls-display-mega);
-      color: var(--color-ink);
-      margin-bottom: var(--sp-md);
-    }
-
-    .hero-head p {
-      font-family: var(--font-body);
-      font-size: var(--fs-body-md);
-      font-weight: var(--fw-body-md);
-      line-height: var(--lh-body-md);
-      letter-spacing: var(--ls-body-md);
-      color: var(--color-body);
-      margin-bottom: var(--sp-lg);
-      max-width: 560px;
-    }
-
-    .hero-actions {
-      display: flex;
-      gap: var(--sp-md);
-      flex-wrap: wrap;
-    }
-
-    .hero-visual {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .hero-card {
-      background-color: var(--color-surface_card);
-      border: 1px solid var(--color-hairline);
-      border-radius: var(--rd-xl);
-      padding: var(--sp-xl);
-      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
-      max-width: 320px;
-      text-align: center;
-    }
-
-    .hero-card .badge {
-      display: inline-block;
-      background-color: var(--color-surface-strong);
-      color: var(--color-ink);
-      font-family: var(--font-body);
-      font-size: var(--fs-caption-uppercase);
-      font-weight: var(--fw-caption-uppercase);
-      line-height: var(--lh-caption-uppercase);
-      letter-spacing: var(--ls-caption-uppercase);
-      text-transform: uppercase;
-      padding: 4px 10px;
-      border-radius: var(--rd-pill);
-      margin-bottom: var(--sp-md);
-    }
-
-    .hero-card h3 {
-      font-family: var(--font-display);
-      font-size: var(--fs-display-sm);
-      font-weight: 300;
-      line-height: var(--lh-display-sm);
-      letter-spacing: 0;
-      color: var(--color-ink);
-      margin-bottom: var(--sp-sm);
-    }
-
-    .hero-card p {
-      font-family: var(--font-body);
-      font-size: var(--fs-body-sm);
-      font-weight: var(--fw-body-md);
-      line-height: var(--lh-body-sm);
-      letter-spacing: var(--ls-body-sm);
-      color: var(--color-body);
-    }
-
-    /* ----------------------------------------------------------------
-       About
-       ----------------------------------------------------------------- */
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: var(--sp-xl);
-      align-items: start;
-    }
-
-    .about-text p {
-      margin-bottom: var(--sp-md);
-      color: var(--color-body);
-    }
-
-    .about-text p:last-child {
-      margin-bottom: 0;
-    }
-
-    .about-meta {
-      display: flex;
-      flex-direction: column;
-      gap: var(--sp-md);
-    }
-
-    .meta-item {
-      display: flex;
-      gap: var(--sp-md);
-      align-items: flex-start;
-    }
-
-    .meta-label {
-      font-family: var(--font-body);
-      font-size: var(--fs-title-sm);
-      font-weight: var(--fw-title-sm);
-      line-height: var(--lh-title-sm);
-      letter-spacing: var(--ls-title-sm);
-      color: var(--color-muted);
-      min-width: 160px;
-    }
-
-    .meta-value {
-      font-family: var(--font-body);
-      font-size: var(--fs-body-md);
-      font-weight: var(--fw-body-md);
-      line-height: var(--lh-body-md);
-      letter-spacing: var(--ls-body-md);
-      color: var(--color-body);
-    }
-
-    /* ----------------------------------------------------------------
-       Education
-       ----------------------------------------------------------------- */
-    .edu-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: var(--sp-lg);
-    }
-
-    .edu-card {
-      background-color: var(--color-surface_card);
-      border: 1px solid var(--color-hairline);
-      border-radius: var(--rd-xl);
-      padding: var(--sp-lg);
-    }
-
-    .edu-card h3 {
-      font-family: var(--font-display);
-      font-size: var(--fs-display-sm);
-      font-weight: 300;
-      line-height: var(--lh-display-sm);
-      letter-spacing: 0;
-      color: var(--color-ink);
-      margin-bottom: var(--sp-sm);
-    }
-
-    .edu-card .edu-institution {
-      font-family: var(--font-body);
-      font-size: var(--fs-title-sm);
-      font-weight: var(--fw-title-sm);
-      line-height: var(--lh-title-sm);
-      letter-spacing: var(--ls-title-sm);
-      color: var(--color-muted);
-      margin-bottom: var(--sp-xs);
-    }
-
-    .edu-card .edu-detail {
-      font-family: var(--font-body);
-      font-size: var(--fs-body-md);
-      font-weight: var(--fw-body-md);
-      line-height: var(--lh-body-md);
-      letter-spacing: var(--ls-body-md);
-      color: var(--color-body);
-      margin-bottom: var(--sp-xs);
-    }
-
-    .edu-card .edu-detail:last-child {
-      margin-bottom: 0;
-    }
-
-    /* ----------------------------------------------------------------
-       Skills
-       ----------------------------------------------------------------- */
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: var(--sp-lg);
-    }
-
-    .skill-group {
-      background-color: var(--color-surface_card);
-      border: 1px solid var(--color-hairline);
-      border-radius: var(--rd-xl);
-      padding: var(--sp-lg);
-    }
-
-    .skill-group h3 {
-      font-family: var(--font-display);
-      font-size: var(--fs-display-sm);
-      font-weight: 300;
-      line-height: var(--lh-display-sm);
-      letter-spacing: 0;
-      color: var(--color-ink);
-      margin-bottom: var(--sp-md);
-    }
-
-    .skill-list {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: var(--sp-xs);
-    }
-
-    .skill-item {
-      font-family: var(--font-body);
-      font-size: var(--fs-body-md);
-      font-weight: var(--fw-body-md);
-      line-height: var(--lh-body-md);
-      letter-spacing: var(--ls-body-md);
-      color: var(--color-body);
-      padding: var(--sp-xs) 0;
-      border-bottom: 1px solid var(--color-hairline-soft);
-    }
-
-    .skill-item:last-child {
-      border-bottom: none;
-    }
-
-    /* ----------------------------------------------------------------
-       Career Roadmap (Planned / Targets)
-       ----------------------------------------------------------------- */
-    .roadmap-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: var(--sp-lg);
-    }
-
-    .roadmap-card {
-      background-color: var(--color-surface_card);
-      border: 1px solid var(--color-hairline);
-      border-radius: var(--rd-xl);
-      padding: var(--sp-lg);
-    }
-
-    .roadmap-card h3 {
-      font-family: var(--font-display);
-      font-size: var(--fs-display-sm);
-      font-weight: 300;
-      line-height: var(--lh-display-sm);
-      letter-spacing: 0;
-      color: var(--color-ink);
-      margin-bottom: var(--sp-md);
-    }
-
-    .roadmap-list {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: var(--sp-md);
-    }
-
-    .roadmap-item {
-      font-family: var(--font-body);
-      font-size: var(--fs-body-md);
-      font-weight: var(--fw-body-md);
-      line-height: var(--lh-body-md);
-      letter-spacing: var(--ls-body-md);
-      color: var(--color-body);
-      padding-bottom: var(--sp-md);
-      border-bottom: 1px solid var(--color-hairline-soft);
-    }
-
-    .roadmap-item:last-child {
-      border-bottom: none;
-      padding-bottom: 0;
-    }
-
-    .roadmap-target {
-      font-family: var(--font-body);
-      font-size: var(--fs-body-sm);
-      font-weight: var(--fw-body-md);
-      line-height: var(--lh-body-sm);
-      letter-spacing: var(--ls-body-sm);
-      color: var(--color-muted);
-      margin-top: var(--sp-xxs);
-      display: block;
-    }
-
-    /* ----------------------------------------------------------------
-       Languages
-       ----------------------------------------------------------------- */
-    .languages-wrap {
-      display: flex;
-      flex-wrap: wrap;
-      gap: var(--sp-md);
-      align-items: center;
-    }
-
-    .language-item {
-      font-family: var(--font-body);
-      font-size: var(--fs-body-md);
-      font-weight: var(--fw-body-md);
-      line-height: var(--lh-body-md);
-      letter-spacing: var(--ls-body-md);
-      color: var(--color-body);
-    }
-
-    /* ----------------------------------------------------------------
-       Contact
-       ----------------------------------------------------------------- */
-    .contact-wrap {
-      max-width: 640px;
-      margin: 0 auto;
-      text-align: center;
-    }
-
-    .contact-head {
-      margin-bottom: var(--sp-xl);
-    }
-
-    .contact-head h2 {
-      font-family: var(--font-display);
-      font-size: var(--fs-display-lg);
-      font-weight: 300;
-      line-height: var(--lh-display-lg);
-      letter-spacing: var(--ls-display-lg);
-      color: var(--color-ink);
-      margin-bottom: var(--sp-sm);
-    }
-
-    .contact-head p {
-      font-family: var(--font-body);
-      font-size: var(--fs-body-md);
-      font-weight: var(--fw-body-md);
-      line-height: var(--lh-body-md);
-      letter-spacing: var(--ls-body-md);
-      color: var(--color-body);
-    }
-
-    .contact-details {
-      display: flex;
-      flex-direction: column;
-      gap: var(--sp-md);
-      margin-bottom: var(--sp-xl);
-    }
-
-    .contact-item {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: var(--sp-md);
-    }
-
-    .contact-item a {
-      color: var(--color-ink);
-      text-decoration: none;
-      font-family: var(--font-body);
-      font-size: var(--fs-body-md);
-      font-weight: var(--fw-body-md);
-      line-height: var(--lh-body-md);
-      letter-spacing: var(--ls-body-md);
-    }
-
-    .contact-item a:hover,
-    .contact-item a:focus-visible {
-      color: var(--color-primary);
-      outline: 2px solid var(--color-ink);
-      outline-offset: 2px;
-      border-radius: var(--rd-xs);
-    }
-
-    /* ----------------------------------------------------------------
-       Footer
-       ----------------------------------------------------------------- */
-    .footer {
-      background-color: var(--color-canvas);
-      border-top: 1px solid var(--color-hairline);
-      padding: var(--sp-xl) 0;
-    }
-
-    .footer-wrap {
-      max-width: var(--max-width);
-      margin: 0 auto;
-      padding: 0 var(--sp-base);
-      display: flex;
-      flex-direction: column;
-      gap: var(--sp-lg);
-      align-items: center;
-      text-align: center;
-    }
-
-    .footer-name {
-      font-family: var(--font-display);
-      font-size: var(--fs-display-sm);
-      font-weight: 300;
-      line-height: var(--lh-display-sm);
-      letter-spacing: 0;
-      color: var(--color-ink);
-    }
-
-    .footer-note {
-      font-family: var(--font-body);
-      font-size: var(--fs-body-sm);
-      font-weight: var(--fw-body-md);
-      line-height: var(--lh-body-sm);
-      letter-spacing: var(--ls-body-sm);
-      color: var(--color-body);
-    }
-
-    /* ----------------------------------------------------------------
-       Back to top
-       ----------------------------------------------------------------- */
-    .back-to-top {
-      position: fixed;
-      bottom: var(--sp-xl);
-      right: var(--sp-xl);
-      background-color: var(--color-primary);
-      color: #ffffff;
-      border: none;
-      border-radius: var(--rd-pill);
-      width: 48px;
-      height: 48px;
-      cursor: pointer;
-      z-index: 400;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      opacity: 0;
-      visibility: hidden;
-      transition: opacity 0.3s ease, visibility 0.3s ease, background-color 0.2s ease;
-    }
-
-    .back-to-top:focus-visible {
-      outline: 2px solid var(--color-ink);
-      outline-offset: 2px;
-    }
-
-    .back-to-top.visible {
-      opacity: 1;
-      visibility: visible;
-    }
-
-    .back-to-top:hover {
-      background-color: var(--color-primary-active);
-    }
-
-    .back-to-top svg {
-      width: 20px;
-      height: 20px;
-      fill: #ffffff;
-    }
-
-    /* ----------------------------------------------------------------
-       Responsive
-       ----------------------------------------------------------------- */
-    @media (max-width: 1024px) {
-      .hero-head h1 {
-        font-size: var(--fs-display-xl);
-        letter-spacing: var(--ls-display-xl);
-      }
-    }
-
-    @media (max-width: 768px) {
-      .nav-list {
-        position: fixed;
-        top: var(--nav-height);
-        left: 0;
-        right: 0;
-        background-color: var(--color-canvas);
-        flex-direction: column;
-        align-items: stretch;
-        padding: var(--sp-base);
-        gap: var(--sp-xs);
-        border-bottom: 1px solid var(--color-hairline);
-        transform: translateY(-100%);
-        opacity: 0;
-        visibility: hidden;
-        transition: transform 0.3s ease, opacity 0.3s ease, visibility 0.3s ease;
-        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
-      }
-
-      .nav-list.open {
-        transform: translateY(0);
-        opacity: 1;
-        visibility: visible;
-      }
-
-      .nav-link {
-        padding: var(--sp-md) var(--sp-base);
-      }
-
-      .mobile-menu-btn {
-        display: block;
-      }
-
-      .nav-actions {
-        gap: var(--sp-sm);
-      }
-
-      .hero-head h1 {
-        font-size: var(--fs-display-md);
-        letter-spacing: var(--ls-display-md);
-      }
-
-      .hero .container {
-        gap: var(--sp-lg);
-      }
-
-      .section {
-        padding: var(--sp-xl) 0;
-      }
-
-      .section-head h2 {
-        font-size: var(--fs-display-md);
-      }
-
-      .meta-item {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: var(--sp-xs);
-      }
-
-      .meta-label {
-        min-width: auto;
-      }
-
-      .contact-item {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: var(--sp-xs);
-      }
-    }
-
-    @media (max-width: 640px) {
-      .hero-head h1 {
-        font-size: 32px;
-        letter-spacing: -0.96px;
-      }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      *,
-      *::before,
-      *::after {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-        scroll-behavior: auto !important;
-      }
-    }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ramit Kumar · Pharmaceutical Research Portfolio</title>
+<style>
+:root{--bg:#0b1220;--surface:#121b2e;--line:#22304a;--text:#e8edf6;--muted:#9fb0c9;--accent:#2dd4bf;--accent-ink:#06211d;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:light){:root:not([data-theme="dark"]){--bg:#f6f8fb;--surface:#fff;--line:#d9e1ec;--text:#0f1b2d;--muted:#51627c;--accent:#0f766e;--accent-ink:#fff}}
+html{scroll-behavior:smooth;scroll-padding-top:calc(72px + env(safe-area-inset-top,0px));color-scheme:light dark}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font:16px/1.65 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+a{color:var(--accent)}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:4px}
+.wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--bg);border-bottom:1px solid var(--line)}
+nav{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:60px}
+nav .logo{font-weight:700;color:var(--text);text-decoration:none}
+nav ul{display:flex;gap:4px;list-style:none;margin:0;padding:0;overflow-x:auto}
+nav ul a{display:block;padding:8px 12px;color:var(--muted);text-decoration:none;border-radius:8px;white-space:nowrap;font-size:.92rem}
+nav ul a:hover{color:var(--text);background:var(--surface)}
+.hero{padding:72px 0 56px}
+.eyebrow{color:var(--accent);font-weight:600;letter-spacing:.08em;text-transform:uppercase;font-size:.8rem}
+h1{font-size:clamp(2.4rem,7vw,4.2rem);line-height:1.08;margin:12px 0 16px;letter-spacing:-.02em}
+h1 span{color:var(--accent)}
+.lead{font-size:1.15rem;color:var(--muted);max-width:660px}
+.btns{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.btn{display:inline-block;padding:12px 22px;border-radius:999px;font-weight:600;text-decoration:none;border:1px solid var(--accent)}
+.btn.p{background:var(--accent);color:var(--accent-ink)}
+.btn.s{color:var(--accent)}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin-top:44px}
+.fact{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px 18px}
+.fact b{display:block;font-size:.78rem;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;font-weight:600}
+section{padding:56px 0;border-top:1px solid var(--line)}
+h2{font-size:clamp(1.6rem,4vw,2.2rem);margin:0 0 8px;letter-spacing:-.01em}
+.sub{color:var(--muted);max-width:640px;margin:0 0 28px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:22px}
+.card h3{margin:0 0 8px;font-size:1.08rem}
+.card p,.card li{color:var(--muted);margin:0}
+.card ul{padding-left:18px;margin:0}
+.tag{display:inline-block;font-size:.75rem;font-weight:600;padding:2px 10px;border-radius:999px;border:1px solid var(--line);color:var(--accent);margin-bottom:10px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;padding:0;list-style:none;margin:0}
+.chips li{padding:6px 14px;border:1px solid var(--line);border-radius:999px;background:var(--surface);font-size:.92rem;color:var(--text)}
+.tl{list-style:none;margin:0;padding:0 0 0 22px;border-left:2px solid var(--line)}
+.tl>li{position:relative;padding:0 0 28px 18px}
+.tl>li::before{content:"";position:absolute;left:-30px;top:6px;width:14px;height:14px;border-radius:50%;background:var(--accent);border:3px solid var(--bg)}
+.tl h3{margin:0 0 6px}
+.tl ul{margin:0;padding-left:18px;color:var(--muted)}
+.note{border-left:4px solid var(--accent);background:var(--surface);padding:14px 18px;border-radius:0 12px 12px 0;color:var(--muted);margin-top:24px}
+footer{border-top:1px solid var(--line);padding:28px 0 90px;color:var(--muted);font-size:.9rem}
+.top{position:fixed;right:18px;bottom:calc(18px + env(safe-area-inset-bottom,0px));background:var(--accent);color:var(--accent-ink);text-decoration:none;font-weight:700;padding:10px 16px;border-radius:999px;box-shadow:0 4px 14px rgba(0,0,0,.3)}
+@media(max-width:640px){nav{flex-direction:column;align-items:flex-start;padding:8px 0;gap:0}nav ul{width:100%}.hero{padding-top:44px}}
+[hidden]{display:none!important}
+main:focus{outline:none}
+nav ul a[aria-current="page"]{color:var(--accent-ink);background:var(--accent)}
+.hero-grid{display:grid;grid-template-columns:1fr 300px;gap:40px;align-items:center}
+.photo{width:100%;height:auto;border-radius:20px;border:1px solid var(--line);box-shadow:0 12px 36px rgba(0,0,0,.25);background:#fff}
+@media(max-width:760px){.hero-grid{grid-template-columns:1fr}.photo{order:-1;max-width:240px}}
+section.view{border-top:0;padding-top:48px;min-height:60vh}
+</style>
 </head>
 <body>
+<header><div class="wrap"><nav aria-label="Main">
+<a class="logo" href="#home">Ramit Kumar</a>
+<ul>
+<li><a href="#home">Home</a></li><li><a href="#about">About</a></li><li><a href="#direction">Direction</a></li><li><a href="#skills">Skills</a></li><li><a href="#roadmap">Roadmap</a></li><li><a href="#education">Education</a></li><li><a href="#contact">Contact</a></li>
+</ul></nav></div></header>
 
-  <!-- Skip to content -->
-  <a href="#main" class="skip-link">Skip to content</a>
+<main id="main" tabindex="-1">
+<div class="view" data-view="home"><div class="wrap">
+<div class="hero"><div class="hero-grid"><div>
+<div class="eyebrow">B.Pharm student · Pharmaceutical research</div>
+<h1>Building toward a career in <span>drug development</span>.</h1>
+<p class="lead">I’m Ramit Kumar, a first-year B.Pharm student at Lovely Professional University. I’m building a strong base in pharmaceutical science, with the goal of postgraduate research study in Canada, and Italy as an alternative.</p>
+<div class="btns"><a class="btn p" href="#roadmap">View my roadmap</a><a class="btn s" href="#contact">Get in touch</a></div></div>
+<img class="photo" src="data:image/jpeg;base64,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" alt="Portrait of Ramit Kumar, wearing glasses and a black blazer" width="440" height="569"></div>
+<div class="facts">
+<div class="fact"><b>Target role</b>Pharmaceutical Research Scientist / Drug Development Associate</div>
+<div class="fact"><b>Next degree</b>MSc in Pharmaceutical Sciences</div>
+<div class="fact"><b>Destinations</b>Canada first, Italy as alternative</div>
+</div></div>
+</div></div>
 
-  <!-- Top navigation -->
-  <header class="top-nav">
-    <div class="nav-wrap">
-      <a href="#" class="wordmark" aria-label="Home">
-        Ramit Kumar
-        <span>Portfolio</span>
-      </a>
+<section class="view" data-view="about"><div class="wrap">
+<h2>About</h2>
+<p class="sub">Where I am now and where I’m heading.</p>
+<div class="grid">
+<div class="card"><h3>Who I am</h3><p>I’m in the first semester of my B.Pharm at Lovely Professional University. I’m hardworking, disciplined and a quick learner, and I like work that connects science, impact and independence.</p></div>
+<div class="card"><h3>What I want to do</h3><p>I want to work in research-oriented pharmaceutical sciences: drug discovery, formulation and delivery, pharmacology, biotechnology, quality and regulatory science. I’ll choose a specialization after building a solid B.Pharm base.</p></div>
+<div class="card"><h3>Beyond work</h3><p>I enjoy badminton, gaming and singing. I speak Punjabi, English and Hindi.</p></div>
+</div></div></section>
 
-      <button class="mobile-menu-btn" id="mobileMenuBtn" aria-expanded="false" aria-controls="mobileMenu" type="button">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 4h18v2H3V4zm0 7h18v2H3v-2zm0 7h18v2H3v-2z"/></svg>
-      </button>
+<section class="view" data-view="direction"><div class="wrap">
+<h2>Career direction</h2>
+<p class="sub">From my career aspiration plan. These are options I’m exploring, not admissions I’ve received.</p>
+<div class="grid">
+<div class="card"><span class="tag">Primary</span><h3>Canada</h3><p>English-language research environment with strong industry links. Target programme: MSc in Pharmaceutical Sciences at the University of Toronto, with UBC also on my shortlist.</p></div>
+<div class="card"><span class="tag">Alternative</span><h3>Italy</h3><p>Public universities and some English-taught programmes. I’m looking at Pharmaceutical Biotechnology (LM-9) at the University of Milan.</p></div>
+<div class="card"><span class="tag">Next action</span><h3>Compare programmes</h3><p>Compare three to five programmes by supervisor fit, deadlines, total cost and funding before applying.</p></div>
+</div>
+<p class="note">Every route stays open to research, drug development, quality, regulatory affairs or industry operations. Requirements, fees and deadlines change, so I’ll check official sources for my intake year.</p>
+</div></section>
 
-      <nav>
-        <ul class="nav-list" id="mobileMenu">
-          <li><a href="#hero" class="nav-link">Overview</a></li>
-          <li><a href="#about" class="nav-link">About</a></li>
-          <li><a href="#education" class="nav-link">Education</a></li>
-          <li><a href="#skills" class="nav-link">Skills</a></li>
-          <li><a href="#roadmap" class="nav-link">Career Roadmap</a></li>
-          <li><a href="#contact" class="nav-link">Contact</a></li>
-        </ul>
-      </nav>
+<section class="view" data-view="skills"><div class="wrap">
+<h2>Skills</h2>
+<p class="sub">Foundations I’m building in my first year. I’ll add evidence such as projects and lab work as I complete it.</p>
+<div class="grid">
+<div class="card"><h3>Pharmaceutical science</h3><ul><li>Pharmaceutical calculations</li><li>Analytical chemistry fundamentals</li><li>Pharmacology fundamentals</li><li>Formulation and dosage-form knowledge</li></ul></div>
+<div class="card"><h3>Laboratory and research</h3><ul><li>Basic pharmaceutical laboratory techniques</li><li>Research methodology</li><li>Data interpretation</li><li>Quality and regulatory awareness</li></ul></div>
+<div class="card"><h3>Communication and tools</h3><ul><li>Scientific report writing</li><li>Academic presentations</li><li>Microsoft Word and PowerPoint</li></ul></div>
+<div class="card"><h3>Working style</h3><ul><li>Teamwork and communication</li><li>Time management</li><li>Problem-solving</li><li>Attention to detail</li></ul></div>
+</div></div></section>
 
-      <div class="nav-actions">
-        <a href="#contact" class="btn btn-outline">Contact me</a>
-      </div>
-    </div>
-  </header>
+<section class="view" data-view="roadmap"><div class="wrap">
+<h2>Learning and experience roadmap</h2>
+<p class="sub">I haven’t completed these yet. Each item is a planned target with a date, and I’ll move items into completed work as I finish them.</p>
+<ol class="tl">
+<li><h3>2026–27 · Year 1</h3><ul><li>Strengthen chemistry, biology, anatomy, communication and study habits</li><li>Certifications: Good Laboratory Practice, Good Manufacturing Practice, Research methodology (by 2027)</li><li>Projects: pharmaceutical formulation (by 2027), pharmaceutical analysis (by 2027–28)</li></ul></li>
+<li><h3>2028 · Years 2–3</h3><ul><li>Improve grades, explore research areas, build relationships with faculty</li><li>Certifications: pharmaceutical quality and regulatory fundamentals, scientific writing (by 2028)</li><li>Projects: drug-development concepts, dosage forms, evaluation of emerging medicines (by 2028)</li><li>Internships: pharmaceutical manufacturing and quality control/quality assurance (by 2028–29)</li></ul></li>
+<li><h3>2029 · Year 4</h3><ul><li>Internships: formulation, clinical research or a drug-development environment (by 2029)</li><li>Publications: a student research paper, review article or poster (by 2029)</li><li>Complete a strong project, prepare English testing, shortlist supervisors, compare offers and funding</li></ul></li>
+<li><h3>After B.Pharm</h3><ul><li>Apply to carefully matched MSc or LM-9 programmes and build industry-ready skills</li></ul></li>
+</ol>
+</div></section>
 
-  <main id="main">
+<section class="view" data-view="education"><div class="wrap">
+<h2>Education</h2>
+<div class="grid">
+<div class="card"><span class="tag">Pursuing</span><h3>B.Pharm</h3><p>Lovely Professional University. First year, first semester.</p></div>
+<div class="card"><h3>Class XII</h3><p>St. Anthony’s Convent School, Adampur. 83.3%.</p></div>
+<div class="card"><h3>Class X</h3><p>St. Anthony’s Convent School, Adampur. 83.8%.</p></div>
+</div></div></section>
 
-    <!-- Hero -->
-    <section id="hero" class="hero">
-      <div class="container">
-        <div class="hero-head">
-          <span class="section-label">Professional portfolio</span>
-          <h1>Ramit Kumar</h1>
-          <p>B.Pharm. student at Lovely Professional University, building toward a career in pharmaceutical research and drug development. My goal is to contribute to innovative healthcare and medicine-development initiatives, with Canada as my primary destination and Italy as an alternative pathway.</p>
-          <div class="hero-actions">
-            <a href="#roadmap" class="btn btn-primary">View my roadmap</a>
-            <a href="#contact" class="btn btn-outline">Contact me</a>
-          </div>
-        </div>
+<section class="view" data-view="contact"><div class="wrap">
+<h2>Contact</h2>
+<p class="sub">I’m happy to hear from mentors, faculty and anyone working in pharmaceutical research.</p>
+<div class="btns" style="margin-top:0"><a class="btn p" href="mailto:ramitkumar1307@gmail.com">ramitkumar1307@gmail.com</a><a class="btn s" href="tel:+917696525604">+91 76965 25604</a></div>
+</div></section>
+</main>
 
-        <div class="hero-visual">
-          <div class="hero-card">
-            <span class="badge">Aspiring Pharmaceutical Research &amp; Drug Development Professional</span>
-            <h3>Ramit Kumar</h3>
-            <p>B.Pharm. Year 1 · Lovely Professional University</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- About -->
-    <section id="about" class="section">
-      <div class="container">
-        <div class="section-head">
-          <span class="section-label">About</span>
-          <h2>About me</h2>
-          <p>I am a first-year B.Pharm. student at Lovely Professional University pursuing a research-oriented career in pharmaceutical sciences. My direction connects science, impact, and independence — building strong fundamentals in medicines, formulation, analysis, and patient safety, with the goal of postgraduate study in Canada or Italy.</p>
-        </div>
-
-        <div class="about-grid">
-          <div class="about-text">
-            <p>I want a career that bridges scientific rigor with real-world impact. My preferred direction is research-oriented pharmaceutical sciences — exploring drug discovery, formulation and delivery, pharmacology, biotechnology, quality, and regulatory science. An MSc in Pharmaceutical Sciences is my target next step, as it is research-focused and may lead to laboratory, R&amp;D, or PhD pathways.</p>
-            <p>My long-term ambition is to contribute to innovative healthcare and medicine-development initiatives in Canada, with Italy as an alternative pathway. I aim to become financially independent and eventually live and work abroad.</p>
-          </div>
-
-          <div class="about-meta">
-            <div class="meta-item">
-              <span class="meta-label">Current status</span>
-              <span class="meta-value">B.Pharm. Year 1, Semester 1 (Pursuing)</span>
-            </div>
-            <div class="meta-item">
-              <span class="meta-label">University</span>
-              <span class="meta-value">Lovely Professional University</span>
-            </div>
-            <div class="meta-item">
-              <span class="meta-label">Career direction</span>
-              <span class="meta-value">Research-oriented Pharmaceutical Sciences</span>
-            </div>
-            <div class="meta-item">
-              <span class="meta-label">Primary destination</span>
-              <span class="meta-value">Canada (Italy as alternative)</span>
-            </div>
-            <div class="meta-item">
-              <span class="meta-label">Dream role</span>
-              <span class="meta-value">Pharmaceutical Research Scientist / Drug Development Associate</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Education -->
-    <section id="education" class="section section-alt">
-      <div class="container">
-        <div class="section-head">
-          <span class="section-label">Education</span>
-          <h2>Education</h2>
-          <p>Academic qualifications supporting my pharmaceutical sciences pathway.</p>
-        </div>
-
-        <div class="edu-grid">
-          <div class="edu-card">
-            <h3>B.Pharm. — Bachelor of Pharmacy</h3>
-            <div class="edu-institution">Lovely Professional University</div>
-            <div class="edu-detail">1st Year, 1st Semester — Pursuing</div>
-            <div class="edu-detail">Jalandhar, Punjab</div>
-          </div>
-
-          <div class="edu-card">
-            <h3>Class XII — Senior Secondary</h3>
-            <div class="edu-institution">St. Anthony's Convent School, Adampur</div>
-            <div class="edu-detail">Score: 83.3%</div>
-            <div class="edu-detail">Adampur, Punjab</div>
-          </div>
-
-          <div class="edu-card">
-            <h3>Class X — Secondary</h3>
-            <div class="edu-institution">St. Anthony's Convent School, Adampur</div>
-            <div class="edu-detail">Score: 83.8%</div>
-            <div class="edu-detail">Adampur, Punjab</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Skills -->
-    <section id="skills" class="section">
-      <div class="container">
-        <div class="section-head">
-          <span class="section-label">Skills</span>
-          <h2>Skills &amp; capabilities</h2>
-          <p>Technical and transferable skills drawn from my B.Pharm. coursework and career plan.</p>
-        </div>
-
-        <div class="skills-grid">
-          <div class="skill-group">
-            <h3>Technical Skills</h3>
-            <ul class="skill-list">
-              <li class="skill-item">Pharmaceutical sciences fundamentals</li>
-              <li class="skill-item">Drug development concepts</li>
-              <li class="skill-item">Pharmaceutical analysis</li>
-              <li class="skill-item">Pharmacology fundamentals</li>
-              <li class="skill-item">Formulation &amp; dosage-form knowledge</li>
-              <li class="skill-item">Laboratory practice &amp; research methodology</li>
-              <li class="skill-item">Scientific documentation &amp; data interpretation</li>
-              <li class="skill-item">Quality and regulatory awareness</li>
-              <li class="skill-item">Basic pharmaceutical laboratory techniques</li>
-              <li class="skill-item">Pharmaceutical calculations</li>
-              <li class="skill-item">Analytical chemistry fundamentals</li>
-              <li class="skill-item">Scientific report writing</li>
-              <li class="skill-item">Microsoft Word &amp; PowerPoint</li>
-              <li class="skill-item">Academic presentations</li>
-              <li class="skill-item">Basic research &amp; information-gathering</li>
-            </ul>
-          </div>
-
-          <div class="skill-group">
-            <h3>Soft Skills</h3>
-            <ul class="skill-list">
-              <li class="skill-item">Good communication</li>
-              <li class="skill-item">Teamwork</li>
-              <li class="skill-item">Time management</li>
-              <li class="skill-item">Problem-solving</li>
-              <li class="skill-item">Quick learning &amp; adaptability</li>
-              <li class="skill-item">Attention to detail</li>
-              <li class="skill-item">Responsibility</li>
-              <li class="skill-item">Positive attitude</li>
-            </ul>
-          </div>
-
-          <div class="skill-group">
-            <h3>Strengths</h3>
-            <ul class="skill-list">
-              <li class="skill-item">Hardworking</li>
-              <li class="skill-item">Sincere</li>
-              <li class="skill-item">Quick learner</li>
-              <li class="skill-item">Responsible</li>
-              <li class="skill-item">Disciplined</li>
-              <li class="skill-item">Good team player</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Career Roadmap (Planned / Targets) -->
-    <section id="roadmap" class="section section-alt">
-      <div class="container">
-        <div class="section-head">
-          <span class="section-label">Career Roadmap &amp; Targets</span>
-          <h2>Planned milestones</h2>
-          <p>All items below are stated as targets in my CV and career aspiration plan. None are completed yet — they represent my intended path forward.</p>
-        </div>
-
-        <div class="roadmap-grid">
-          <div class="roadmap-card">
-            <h3>Target Certifications</h3>
-            <ul class="roadmap-list">
-              <li class="roadmap-item">
-                Good Laboratory Practice (GLP)
-                <span class="roadmap-target">Target: by 2027</span>
-              </li>
-              <li class="roadmap-item">
-                Good Manufacturing Practice (GMP)
-                <span class="roadmap-target">Target: by 2027</span>
-              </li>
-              <li class="roadmap-item">
-                Pharmaceutical quality and regulatory fundamentals
-                <span class="roadmap-target">Target: by 2028</span>
-              </li>
-              <li class="roadmap-item">
-                Research methodology
-                <span class="roadmap-target">Target: by 2027</span>
-              </li>
-              <li class="roadmap-item">
-                Scientific writing
-                <span class="roadmap-target">Target: by 2028</span>
-              </li>
-            </ul>
-          </div>
-
-          <div class="roadmap-card">
-            <h3>Planned Projects &amp; Internships</h3>
-            <ul class="roadmap-list">
-              <li class="roadmap-item">
-                Pharmaceutical formulation
-                <span class="roadmap-target">Project · by 2027</span>
-              </li>
-              <li class="roadmap-item">
-                Pharmaceutical analysis
-                <span class="roadmap-target">Project · by 2027–28</span>
-              </li>
-              <li class="roadmap-item">
-                Drug-development concepts
-                <span class="roadmap-target">Project · by 2028</span>
-              </li>
-              <li class="roadmap-item">
-                Dosage forms &amp; evaluation of emerging medicines
-                <span class="roadmap-target">Project · by 2028</span>
-              </li>
-              <li class="roadmap-item">
-                Pharmaceutical manufacturing
-                <span class="roadmap-target">Internship · by 2028–29</span>
-              </li>
-              <li class="roadmap-item">
-                Quality control / quality assurance
-                <span class="roadmap-target">Internship · by 2028–29</span>
-              </li>
-              <li class="roadmap-item">
-                Formulation · Clinical research · Drug-development environments
-                <span class="roadmap-target">Internships · by 2029</span>
-              </li>
-            </ul>
-          </div>
-
-          <div class="roadmap-card">
-            <h3>Planned Publications</h3>
-            <ul class="roadmap-list">
-              <li class="roadmap-item">
-                Student research paper
-                <span class="roadmap-target">Target: by 2029</span>
-              </li>
-              <li class="roadmap-item">
-                Review article
-                <span class="roadmap-target">Target: by 2029</span>
-              </li>
-              <li class="roadmap-item">
-                Poster presentation
-                <span class="roadmap-target">Target: by 2029</span>
-              </li>
-            </ul>
-          </div>
-
-          <div class="roadmap-card">
-            <h3>Higher Studies</h3>
-            <ul class="roadmap-list">
-              <li class="roadmap-item">
-                Master's in Pharmaceutical Sciences / Drug Development
-                <span class="roadmap-target">Target University: University of Toronto</span>
-              </li>
-              <li class="roadmap-item">
-                Also exploring: UBC, University of Milan, University of Rome Tor Vergata
-                <span class="roadmap-target">Canada or Italy</span>
-              </li>
-              <li class="roadmap-item">
-                Target package: CAD 80,000+/year
-                <span class="roadmap-target">Dream company: AstraZeneca Canada</span>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Languages -->
-    <section id="languages" class="section">
-      <div class="container">
-        <div class="section-head">
-          <span class="section-label">Languages</span>
-          <h2>Languages</h2>
-          <p>Languages I speak, as listed in my CV.</p>
-        </div>
-
-        <div class="languages-wrap">
-          <span class="language-item">Punjabi</span>
-          <span class="language-item">English</span>
-          <span class="language-item">Hindi</span>
-        </div>
-      </div>
-    </section>
-
-    <!-- Contact -->
-    <section id="contact" class="section section-alt">
-      <div class="container">
-        <div class="contact-wrap">
-          <div class="contact-head">
-            <h2>Get in touch</h2>
-            <p>I welcome the opportunity to connect about pharmaceutical research, drug development, and collaborative study.</p>
-          </div>
-
-          <div class="contact-details">
-            <div class="contact-item">
-              <a href="mailto:ramitkumar1307@gmail.com">ramitkumar1307@gmail.com</a>
-            </div>
-            <div class="contact-item">
-              <a href="tel:+917696525604">+91 7696525604</a>
-            </div>
-            <div class="contact-item">
-              <span>Village Dheypur, P/O Adda Kathar</span>
-            </div>
-            <div class="contact-item">
-              <span>District Jalandhar, Punjab, India</span>
-            </div>
-          </div>
-
-          <a href="#hero" class="btn btn-primary">Back to top</a>
-        </div>
-      </div>
-    </section>
-
-  </main>
-
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="footer-wrap">
-      <div class="footer-name">Ramit Kumar</div>
-      <p class="footer-note">B.Pharm. student · Aspiring Pharmaceutical Research &amp; Drug Development Professional</p>
-    </div>
-  </footer>
-
-  <!-- Back to top button -->
-  <button class="back-to-top" id="backToTop" aria-label="Back to top" type="button">
-    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4l-8 8h16l-8-8z"/></svg>
-  </button>
-
-  <script>
-    /* ----------------------------------------------------------------
-       Mobile menu toggle
-       ----------------------------------------------------------------- */
-    (function () {
-      var btn = document.getElementById('mobileMenuBtn');
-      var menu = document.getElementById('mobileMenu');
-      var links = menu.querySelectorAll('.nav-link');
-
-      btn.addEventListener('click', function () {
-        var expanded = btn.getAttribute('aria-expanded') === 'true';
-        btn.setAttribute('aria-expanded', !expanded);
-        menu.classList.toggle('open');
-      });
-
-      links.forEach(function (link) {
-        link.addEventListener('click', function () {
-          btn.setAttribute('aria-expanded', 'false');
-          menu.classList.remove('open');
-        });
-      });
-    })();
-
-    /* ----------------------------------------------------------------
-       Back to top visibility
-       ----------------------------------------------------------------- */
-    (function () {
-      var btn = document.getElementById('backToTop');
-
-      function toggle() {
-        if (window.scrollY > 200) {
-          btn.classList.add('visible');
-        } else {
-          btn.classList.remove('visible');
-        }
-      }
-
-      window.addEventListener('scroll', toggle);
-      toggle();
-
-      btn.addEventListener('click', function () {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      });
-    })();
-  </script>
+<footer><div class="wrap">© 2026 Ramit Kumar. First version, updated as I gain experience.</div></footer>
+<a class="top" href="#home" id="topbtn">↑ Top</a>
+<script>
+(function(){
+var views=[].slice.call(document.querySelectorAll('.view')),links=[].slice.call(document.querySelectorAll('nav ul a')),
+names={home:'Home',about:'About',direction:'Career direction',skills:'Skills',roadmap:'Roadmap',education:'Education',contact:'Contact'};
+function show(){
+ var h=location.hash.replace('#','');
+ if(!names[h])h='home';
+ views.forEach(function(v){v.hidden=v.getAttribute('data-view')!==h});
+ links.forEach(function(a){if(a.getAttribute('href')==='#'+h)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current')});
+ document.title=(h==='home'?'':names[h]+' · ')+'Ramit Kumar · Portfolio';
+ window.scrollTo(0,0);
+ document.getElementById('main').focus({preventScroll:true});
+}
+window.addEventListener('hashchange',show);show();
+document.getElementById('topbtn').addEventListener('click',function(e){e.preventDefault();window.scrollTo({top:0,behavior:'smooth'})});
+})();
+</script>
 </body>
 </html>
